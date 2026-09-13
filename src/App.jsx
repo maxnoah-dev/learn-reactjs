@@ -1,122 +1,89 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import "./App.css";
+import Button from "./components/Button";
+
+import { useState } from "react";
+
+const logo = "/logo-login.png";
+
+function Header() {
+  return (
+    <>
+      <header>
+        <ul className="container-header">
+          <li className="brand">Wanderlust</li>
+
+          <div className="nav-group">
+            <li>Home</li>
+            <li>About</li>
+            <li>Pricing</li>
+            <li>Contact</li>
+          </div>
+
+          <div className="auth-group">
+            <li>Login</li>
+            <li>Sign up</li>
+          </div>
+        </ul>
+      </header>
+    </>
+  );
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  // function notiClick(message) {
+  //     alert(`${message} is selected!`)
+  // }
+
+  const getCount = () => {
+    alert(`Biến đếm count hiện tại là: ${count}`);
+  };
+
+  const increaseCount = () => {
+    alert("Count đã được tăng thêm 1 đơn vị!");
+    // setCount((currentCount) => currentCount + 1);
+    setCount(count + 1);
+  };
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+      <Header />
+      <div className="container-login">
+        <ul className="login-form">
+          <li>
+            <img src={logo} alt="logo-login-page" />
+          </li>
+          <li>
+            Username: <input type="text" />
+          </li>
+          <li>
+            Password: <input type="password" />
+          </li>
+          <li className="forgot-password">
+            <input type="radio" /> <span>Forgot password?</span>{" "}
+            <a href="#">Click here</a>
+          </li>
+        </ul>
+      </div>
+      <div className="main-content">
+        <Button
+          onSelect={() => {
+            getCount();
+          }}
         >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+          Kiểm tra số đếm
+        </Button>
+        <Button
+          onSelect={() => {
+            increaseCount();
+          }}
+        >
+          Tăng số đếm
+        </Button>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
