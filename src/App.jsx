@@ -1,6 +1,6 @@
 import "./App.css";
 import Button from "./components/Button";
-
+import TabButton from "./components/TabButton";
 import { useState } from "react";
 
 const logo = "/logo-login.png";
@@ -31,10 +31,36 @@ function Header() {
 
 function App() {
   const [count, setCount] = useState(0);
+  console.log("App is called");
 
-  // function notiClick(message) {
-  //     alert(`${message} is selected!`)
-  // }
+  const [selectedTopic, setSelectedTopic] = useState(
+    "Vui lòng click vào nút lưu lại!",
+  );
+
+  function notiClick(message) {
+      alert(`${message} is selected!`)
+  }
+
+  const [hello, setHello] = useState('');
+
+
+  function handleHello() {
+    let currentTime = new Date();
+    // let tmp = currentTime.getUTCHours();
+    // currentTime.setUTCHours(12)
+    let hours = currentTime.getUTCHours();
+    // let minutes = currentTime.getUTCMinutes();
+    // console.log(tmp);
+
+    if (hours >= 5 && hours < 12) {
+      setHello("Chào buổi sáng!");
+    }
+    if (hours >= 12 && hours < 18) {
+      setHello("Chào buổi chiều!");
+    } else {
+      setHello("Chào buổi tối!");
+    }
+  }
 
   const getCount = () => {
     alert(`Biến đếm count hiện tại là: ${count}`);
@@ -45,6 +71,10 @@ function App() {
     // setCount((currentCount) => currentCount + 1);
     setCount(count + 1);
   };
+
+  function handleSelect(selectdButton) {
+    setSelectedTopic(selectdButton);
+  }
 
   return (
     <>
@@ -66,7 +96,7 @@ function App() {
           </li>
         </ul>
       </div>
-      <div className="main-content">
+      {/* <div className="main-content">
         <Button
           onSelect={() => {
             getCount();
@@ -81,7 +111,48 @@ function App() {
         >
           Tăng số đếm
         </Button>
-      </div>
+
+        <section id="examples">
+          <menu className="footer">
+            <TabButton
+              onSelected={() => {
+                handleSelect("components");
+              }}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              onSelected={() => {
+                handleSelect("props");
+              }}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              onSelected={() => {
+                handleSelect("states");
+              }}
+            >
+              States
+            </TabButton>
+            <TabButton
+              onSelected={() => {
+                handleSelect("jsx");
+              }}
+            >
+              JSX
+            </TabButton>
+          </menu>
+          {selectedTopic}
+        </section>
+      </div> */}
+
+      <section id="example">
+        <menu>
+          <TabButton handleHello={() => handleHello()}>Xin chào!</TabButton>
+        </menu>
+      </section>
+      {hello}
     </>
   );
 }

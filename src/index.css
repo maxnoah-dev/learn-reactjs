@@ -157,3 +157,8 @@ li {
 .login-form .forgot-password a {
   white-space: nowrap;
 }
+
+/* .footer {
+  display: flex;
+  gap: 40px;
+} */
