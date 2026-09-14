@@ -1,7 +1,7 @@
-export default function TabButton({children, onSelected, handleHello}) {
+export default function TabButton({children, onAtiveModeFunc}) {
     return (
         <>
-            <button onClick={handleHello}>{children}</button>
+            <button onClick={onAtiveModeFunc}>{children}</button>
         </>
     );
 }
