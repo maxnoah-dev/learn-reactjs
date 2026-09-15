@@ -1,10 +1,11 @@
 import "./App.css";
-import Button from "./components/Button";
-import TabButton from "./components/TabButton";
-import { useState } from "react";
-import { myData, EXAMPLES } from "../data";
+// import Button from "./components/Button";
+// import TabButton from "./components/TabButton";
+// import { useState } from "react";
+// import { myData, EXAMPLES } from "../data";
 import Header from "./components/Header";
-import LoginPage from "./components/LoginPage";
+import LoginPage from "./ui/LoginPage";
+
 
 // function Header() {
 //   return (
@@ -129,48 +130,48 @@ function App() {
   //   tabMode = <p>Active thành công</p>;
   // }
 
-  const [mode, setMode] = useState("none");
+  // const [mode, setMode] = useState("none");
 
-  let tabMode;
+  // let tabMode;
 
-  function enbaleMode() {
-    setMode("active");
-  }
+  // function enbaleMode() {
+  //   setMode("active");
+  // }
 
-  function confirmModeActive() {
-    setMode("confirm-mode");
-  }
+  // function confirmModeActive() {
+  //   setMode("confirm-mode");
+  // }
 
-  function cancelModeActive() {
-    setMode("none");
-  }
+  // function cancelModeActive() {
+  //   setMode("none");
+  // }
 
-  if (mode === "none") {
-    tabMode = (
-      <TabButton onAtiveModeFunc={confirmModeActive}>Active</TabButton>
-    )
-  }
+  // if (mode === "none") {
+  //   tabMode = (
+  //     <TabButton onAtiveModeFunc={confirmModeActive}>Active</TabButton>
+  //   )
+  // }
 
-  if (mode === "confirm-mode") {
-    tabMode = (
-      <menu className="active-mode-menu">
-        <li>Do you really want to enable this mode?</li>
+  // if (mode === "confirm-mode") {
+  //   tabMode = (
+  //     <menu className="active-mode-menu">
+  //       <li>Do you really want to enable this mode?</li>
 
-        <div className="active-mode-div">
-          <li>
-            <button type="button" onClick={enbaleMode}>Active</button>
-          </li>
-          <li>
-            <button type="button" onClick={cancelModeActive}>Cancel</button>
-          </li>
-        </div>
-      </menu>
-    )
-  }
+  //       <div className="active-mode-div">
+  //         <li>
+  //           <button type="button" onClick={enbaleMode}>Active</button>
+  //         </li>
+  //         <li>
+  //           <button type="button" onClick={cancelModeActive}>Cancel</button>
+  //         </li>
+  //       </div>
+  //     </menu>
+  //   )
+  // }
 
-  if (mode === "active") {
-    tabMode = <p>Active successfully</p>;
-  }
+  // if (mode === "active") {
+  //   tabMode = <p>Active successfully</p>;
+  // }
 
   return (
     <>
@@ -267,7 +268,7 @@ function App() {
         </pre>
       </div> */}
 
-      {tabMode}
+      {/* {tabMode} */}
     </>
   );
 }
